@@ -1,18 +1,18 @@
 ## switch_gamma - a program for flipping the desktop gamma between light and regular
 ## Written by Thomas Kocourek for Linux desktops
-
+import sys
 import subprocess
 
 ## Set this next line to 'False' if you intend to use the program in a terminal window
 GUI_flag = True
 # GUI_flag = False
 
-if GUI_flag:
-    try:
-        import easygui
-    except Exception:
-        subprocess.call([sys.executable, '-m', 'pip', 'install', 'easygui'])
-        import easygui
+
+try:
+    import easygui
+except Exception as e:
+    print("Check your distribution for an 'easygui' module. Failed to import 'easygui'.")
+    sys.exit()
 
 light_gamma = '1.3'
 regular_gamma = '1.0'
@@ -26,10 +26,7 @@ def test_gamma():
         ## if called from terminal window
         print("Error: ",e)
         print("xgamma cannot be found.")
-        if GUI_flag:
-            ## if called from desktop gui 
-            message = "Error: " + str(e) + ': ' + "Cannot find 'xgamma' program."
-            easygui.msgbox(message, title="Error")
+        
         return False
 
 #x = test_gamma()
