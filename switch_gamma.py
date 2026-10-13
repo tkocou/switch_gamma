@@ -22,7 +22,7 @@ def test_gamma():
         testing = subprocess.Popen(["xgamma"], stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL, text=True)
         return True
     except Exception as e:
-        ## if the host is not available, trap error & do nothing
+        ## if xgamma is not available, trap error & do nothing
         ## if called from terminal window
         print("Error: ",e)
         print("xgamma cannot be found.")
