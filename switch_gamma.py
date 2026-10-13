@@ -11,6 +11,7 @@ GUI_flag = True
 try:
     import easygui
 except Exception as e:
+    print(e)
     print("Check your distribution for an 'easygui' module. Failed to import 'easygui'.")
     sys.exit()
 
