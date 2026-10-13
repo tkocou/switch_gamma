@@ -32,12 +32,11 @@ def test_gamma():
 #x = test_gamma()
 if test_gamma():
     results = subprocess.run(["xgamma"],capture_output=True, text=True)
-    ## 'results' is a sunprocess object. Convert to string object and process it.
+    ## 'results' is a subprocess object. Convert to string object and process it.
     tmp = str(results)
     listing = tmp.split(', ')
     tmp = listing[4].split(' ')
     gamma = tmp[2]
-    # print(gamma)
     if gamma == '1.000':
         if GUI_flag:
             message = "gamma is set to regular mode. Switching to light mode."
